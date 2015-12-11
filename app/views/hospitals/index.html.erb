@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h1>
+    Hospitals
+    <a href="/hospitals/new" class="btn btn-lg btn-success">New Hospital</a>
+  </h1>
+</div>
+
+<%= search_form_for @q do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :name_cont, "Name containing" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :city_cont, "City containing" %>
+    <%= f.text_field :city_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <a href="/hospitals" class="btn btn-default btn-block">Clear filters</a>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @hospitals.each do |hospital| %>
+      <tr>
+        <td><%= hospital.name %></td>
+        <td><%= hospital.city %></td>
+        <td><%= hospital.address %></td>
+        <td>
+          <a href="/hospitals/<%= hospital.id %>" class="btn btn-primary">Show</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

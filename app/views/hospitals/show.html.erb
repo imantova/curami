@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h3><%= @hospital.name %>, <%= @hospital.city %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>Name</dt>
+      <dd><%= @hospital.name %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @hospital.address %></dd>
+
+      <dt>City</dt>
+      <dd><%= @hospital.city %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/hospitals" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/reviews/new/" class="btn btn-danger" rel="nofollow">
+        Write a review
+      </a>
+      <a href="/reviews" class="btn btn-danger" rel="nofollow">
+        Find reviews
+      </a>
+    </div>
+  </div>
+</div>

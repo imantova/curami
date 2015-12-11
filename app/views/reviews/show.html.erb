@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h3><%= @review.title %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Hospital</dt>
+      <dd><%= @review.hospital.name %></dd>
+
+      <dt>Department</dt>
+      <dd><%= @review.department.name %></dd>
+
+      <dt>Visited on</dt>
+      <dd><%= @review.visited_on.strftime('%B %e %Y at %H:%M') %></dd>
+
+      <dt>Body</dt>
+      <dd><%= @review.body %></dd>
+
+      <dt>Rating</dt>
+      <dd><%= @review.rating %></dd>
+
+      <dt>User</dt>
+      <dd><%= @review.user.username %></dd>
+
+
+      <dt>Posted at</dt>
+      <dd><%= time_ago_in_words(@review.created_at) %> ago</dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/reviews" class="btn btn-primary">
+        Back
+      </a>
+
+      <% if @review.user == current_user %>
+      <a href="/reviews/<%= @review.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_review/<%= @review.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+      <% end %>
+
+    </div>
+  </div>
+</div>
